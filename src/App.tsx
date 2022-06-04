@@ -1,6 +1,6 @@
 // import React from 'react';
-import React, {MouseEvent} from "react";
-// import './App.css';
+import React, {MouseEvent, useState} from "react";
+import './App.css';
 import './Button/Button.css'
 import {Header} from "./Start/Header";
 import {Body} from "./Start/Body";
@@ -10,28 +10,47 @@ import {Cars} from "./TopCars/TopCars";
 import {Button} from "./Button/Button";
 import {hasSubscribers} from "diagnostics_channel";
 
-//------------------Button------------------------------------------------------------------------------
+
+//-----------------Hook----------------------------------------------------------------------------
 function App() {
-  const MyGoodYoutubeChanel=(subscribers:string,age:number,address:string)=>{console.log(subscribers,age,address)}
-  const MyBadYoutubeChanel=(subscribers:string,age:number,address:string)=>{console.log(subscribers,age,address)}
-  const MyFavoriteYoutubeChannel=(subscribers:string,age:string,address:number)=>{console.log(subscribers,age,address)}
-  const YourStupidYoutubeChannel=(subscribers:string)=>(console.log(subscribers))
+  //let a = 1
+  let[a,setA]=useState(1)
+ const onClickHandlerClick=()=>{
+    setA( ++a);
+   console.log(a)
+ }
+
+  const onClickHandlerReset=()=> {
+    setA(--a);
+    console.log(a)
+  }
 
   return (
-    <>
-      {/*/!*<button>Fuck, Im Yura and Im here</button>*!/*/}
-      {/*/!*<button>Im just a test. I have no one!</button>*!/*/}
-      {/*//-----------------------------------------------------*/}
-      {/*/!*<Button name={'Hello! I am diligent Petya!'}/>*!/*/}
-      {/*/!*<Button name={'Fuck, Im Yura and Im here'}/>*!/*/}
-      {/*/!*<Button name={'Im just a test. I have no one!'}/>*!/*/}
-      {/*//--------------------------------------------------------*/}
-      <Button name={'My Good Youtube  Chanel'} callBack={()=>MyGoodYoutubeChanel('Hello! I am diligent Petya!',18,'From Klaipeda')}/>
-      <Button name={'My Bad Youtube  Chanel'}callBack={()=>MyBadYoutubeChanel('Fuck, Im Yura and Im here',45,'From Muhosransk')}/>
-      <Button name={'My Favorite Youtube Channel'}callBack={()=>MyFavoriteYoutubeChannel('Im just a test. I have no one!','Infinity. I am machine',3997365170474376)}/>
-      <Button name={'Your Stupid Youtube Channel'} callBack={()=>YourStupidYoutubeChannel('Im a dumb button')}/>
-    </>
-  )
+    <div className='App'>
+      <h1>{a}</h1>
+      <button className="btn" onClick={onClickHandlerClick}>Click</button>
+      <button className="btn" onClick={onClickHandlerReset}>Reset</button>
+    </div>
+  );
+}
+export default App;
+
+//------------------Button-------------------------------------------------------------------------
+// function App() {
+//   const MyGoodYoutubeChanel=(subscribers:string,age:number,address:string)=>{console.log(subscribers,age,address)}
+//   const MyBadYoutubeChanel=(subscribers:string,age:number,address:string)=>{console.log(subscribers,age,address)}
+//   const MyFavoriteYoutubeChannel=(subscribers:string,age:string,address:number)=>{console.log(subscribers,age,address)}
+//   const YourStupidYoutubeChannel=(subscribers:string)=>(console.log(subscribers))
+//
+//   return (
+//     <>
+//       <Button name={'My Good Youtube  Chanel'} callBack={()=>MyGoodYoutubeChanel('Hello! I am diligent Petya!',18,'From Klaipeda')}/>
+//       <Button name={'My Bad Youtube  Chanel'}callBack={()=>MyBadYoutubeChanel('Fuck, Im Yura and Im here',45,'From Muhosransk')}/>
+//       <Button name={'My Favorite Youtube Channel'}callBack={()=>MyFavoriteYoutubeChannel('Im just a test. I have no one!','Infinity. I am machine',3997365170474376)}/>
+//       <Button name={'Your Stupid Youtube Channel'} callBack={()=>YourStupidYoutubeChannel('Im a dumb button')}/>
+//     </>
+//   )
+  //--------------Button Start--------------------------------------------------------------------
 //   const firstGuest = (event:MouseEvent<HTMLButtonElement>) => {
 //       console.log('Hello! I am diligent Petya!')
 //   }
@@ -52,10 +71,10 @@ function App() {
 //       <button onClick={() => onClickHandler('Im just a test. I have no one!')}>My Favorite Youtube Channel</button>
 //     </>
 //   );
-}
+// }
 
-export default App
-//-------------------Body----------------------------------------------------------------------------
+// export default App
+//-------------------Body------------------------------------------------------------------
 //function App() {
 // return (
 //     <>
@@ -66,7 +85,7 @@ export default App
 //     </>
 // );
 
-//-------------------Students---------------------------------------------------------------------------
+//-------------------Students------------------------------------------------------------
 
 // let students = [
 //     {id: 1, name: "James", age: 8},
