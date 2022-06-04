@@ -10,6 +10,7 @@ type TypeTopCars = {
 }
 
 export const Cars = (props: TypeTopCars) => {
+    debugger
     return (
         <table>
             <caption>
