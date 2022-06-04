@@ -32,6 +32,6 @@ tr:nth-child(odd) td {
 
 caption {
     padding: 10px;
-    font-family: Comic Sans MS;
+    font-family: Comic Sans MS, Arial, sans-serif;
     background-color: darkgray;
 }
