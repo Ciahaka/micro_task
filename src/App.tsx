@@ -7,38 +7,51 @@ import {Body} from "./Start/Body";
 import {Footer} from "./Start/Footer";
 import {LessonMap} from "./Map/Comonente map";
 import {Cars} from "./TopCars/TopCars";
+import {Button} from "./Button/Button";
+import {hasSubscribers} from "diagnostics_channel";
 
 //------------------Button------------------------------------------------------------------------------
 function App() {
-  // const firstGuest = (event:MouseEvent<HTMLButtonElement>) => {
-  //     console.log('Hello! I am diligent Petya!')
-  // }
-  // const secondGuest =(event:MouseEvent<HTMLButtonElement>)=> {
-  //     console.log('Fuck, Im Yura and Im here')
-  // }
+  const MyGoodYoutubeChanel=(subscribers:string,age:number,address:string)=>{console.log(subscribers,age,address)}
+  const MyBadYoutubeChanel=(subscribers:string,age:number,address:string)=>{console.log(subscribers,age,address)}
+  const MyFavoriteYoutubeChannel=(subscribers:string,age:string,address:number)=>{console.log(subscribers,age,address)}
+  const YourStupidYoutubeChannel=(subscribers:string)=>(console.log(subscribers))
+
+  return (
+    <>
+      {/*/!*<button>Fuck, Im Yura and Im here</button>*!/*/}
+      {/*/!*<button>Im just a test. I have no one!</button>*!/*/}
+      {/*//-----------------------------------------------------*/}
+      {/*/!*<Button name={'Hello! I am diligent Petya!'}/>*!/*/}
+      {/*/!*<Button name={'Fuck, Im Yura and Im here'}/>*!/*/}
+      {/*/!*<Button name={'Im just a test. I have no one!'}/>*!/*/}
+      {/*//--------------------------------------------------------*/}
+      <Button name={'My Good Youtube  Chanel'} callBack={()=>MyGoodYoutubeChanel('Hello! I am diligent Petya!',18,'From Klaipeda')}/>
+      <Button name={'My Bad Youtube  Chanel'}callBack={()=>MyBadYoutubeChanel('Fuck, Im Yura and Im here',45,'From Muhosransk')}/>
+      <Button name={'My Favorite Youtube Channel'}callBack={()=>MyFavoriteYoutubeChannel('Im just a test. I have no one!','Infinity. I am machine',3997365170474376)}/>
+      <Button name={'Your Stupid Youtube Channel'} callBack={()=>YourStupidYoutubeChannel('Im a dumb button')}/>
+    </>
+  )
+//   const firstGuest = (event:MouseEvent<HTMLButtonElement>) => {
+//       console.log('Hello! I am diligent Petya!')
+//   }
+//   const secondGuest =(event:MouseEvent<HTMLButtonElement>)=> {
+//       console.log('Fuck, Im Yura and Im here')
+//   }
 
   // const onClickHandler = (name: string) => {
   //   console.log(name)
   // }
-const yeti=()=> {
-console.log(100200)
-}
 
-const grizzly=(num:number)=> {
-  console.log(num)
-  }
 
-  return (
-    <>
-      {/*<button onClick={(event) => {console.log('Hello!')}}>My Youtube Chanel_1</button>*/}
-      {/*<button onClick={(event) => onClickHandler('Hello! I am diligent Petya!')}>My Good Youtube  Chanel</button>*/}
-      {/*<button onClick={(event) => onClickHandler('Fuck, Im Yura and Im here')}>My Bad Youtube  Chanel</button>*/}
-      {/*<button onClick={() => onClickHandler('Im just a test. I have no one!')}>My Favorite Youtube Channel</button>*/}
-      <button onClick={yeti}>I had all the bears!</button>
-      <button onClick={()=>grizzly(100200)}>I'm a grizzly! Run Yeti!</button>
-
-    </>
-  );
+//   return (
+//     <>
+//       {/*<button onClick={(event) => {console.log('Hello!')}}>My Youtube Chanel_1</button>*/}
+//       <button onClick={(event) => onClickHandler('Hello! I am diligent Petya!')}>My Good Youtube  Chanel</button>
+//       <button onClick={(event) => onClickHandler('Fuck, Im Yura and Im here')}>My Bad Youtube  Chanel</button>
+//       <button onClick={() => onClickHandler('Im just a test. I have no one!')}>My Favorite Youtube Channel</button>
+//     </>
+//   );
 }
 
 export default App
