@@ -1,39 +1,99 @@
+import React, {useState} from 'react';                    //Banknotes
+// import './App.css';
+import './Banknots/Banknots.css'
 // import React from 'react';
-import React, {MouseEvent, useState} from "react";
-import './App.css';
-import './Button/Button.css'
-import {Header} from "./Start/Header";
-import {Body} from "./Start/Body";
-import {Footer} from "./Start/Footer";
-import {LessonMap} from "./Map/Comonente map";
-import {Cars} from "./TopCars/TopCars";
-import {Button} from "./Button/Button";
-import {hasSubscribers} from "diagnostics_channel";
+// import React, {MouseEvent, useState} from "react";     //Button
+// import './Button/Button.css'                           //Button Style
+// import {Header} from "./Start/Header";
+// import {Body} from "./Start/Body";
+// import {Footer} from "./Start/Footer";
+// import {LessonMap} from "./Map/Comonente map";
+// import {Cars} from "./TopCars/TopCars";
+// import {Button} from "./Button/Button";
+// import {hasSubscribers} from "diagnostics_channel";
 
+//-----------------Banknotes----------------------------------------------------------------------
 
-//-----------------Hook----------------------------------------------------------------------------
+type FilterType = 'All' | 'Ruble' | 'Dollar'
+
 function App() {
-  //let a = 1
-  let[a,setA]=useState(1)
- const onClickHandlerClick=()=>{
-    setA( ++a);
-   console.log(a)
- }
+  const [money, setMoney] = useState([
+    {banknote: 'Dollar ', nominal: 100, number: ' a1234567890'},
+    {banknote: 'Dollar ', nominal: 50, number: ' z1234567890'},
+    {banknote: 'Ruble ', nominal: 100, number: ' w1234567890'},
+    {banknote: 'Dollar ', nominal: 100, number: ' e1234567890'},
+    {banknote: 'Dollar ', nominal: 50, number: ' c1234567890'},
+    {banknote: 'Ruble ', nominal: 100, number: ' r1234567890'},
+    {banknote: 'Dollar ', nominal: 50, number: ' x1234567890'},
+    {banknote: 'Ruble ', nominal: 50, number: ' v1234567890'},
+  ])
 
-  const onClickHandlerReset=()=> {
-    setA(--a);
-    console.log(a)
+  const [filter, setFilter] = useState<FilterType>('All')
+
+  let allBank = money;
+  if (filter === 'Dollar') {
+    allBank = money.filter((launderedRubles) => launderedRubles.banknote === 'Dollar');
+  }
+  if (filter === 'Ruble') {
+    allBank = money.filter((launderedRubles) => launderedRubles.banknote === 'Ruble');
+  }
+
+
+  const onClickFilterHandler = (nameButton: FilterType) => {
+    setFilter(nameButton)
   }
 
   return (
-    <div className='App'>
-      <h1>{a}</h1>
-      <button className="btn" onClick={onClickHandlerClick}>Click</button>
-      <button className="btn" onClick={onClickHandlerReset}>Reset</button>
-    </div>
-  );
+    <>
+      <ul className={'App'}>
+        {allBank.map((objFromMoneyArr, index) => {
+          debugger
+          return (
+            <li key={index}>
+              <span>{objFromMoneyArr.banknote}</span>
+              <span>{objFromMoneyArr.nominal}</span>
+              <span>{objFromMoneyArr.number}</span>
+            </li>
+          )
+        })}
+      </ul>
+      <div style={{margin: '30px'}}>
+        <button className={'btn'} onClick={() => onClickFilterHandler('All')}>{'All'}</button>
+        <button className={'btn'} onClick={() => onClickFilterHandler('Ruble')}>{'Ruble'}</button>
+        <button className={'btn'} onClick={() => onClickFilterHandler('Dollar')}>{'Dollar'}</button>
+      </div>
+
+    </>
+
+  )
 }
+
 export default App;
+
+
+//-----------------Hook----------------------------------------------------------------------------
+// function App() {
+//   //let a = 1
+//   let[a,setA]=useState(1)
+//  const onClickHandlerClick=()=>{
+//     setA( ++a);
+//    console.log(a)
+//  }
+//
+//   const onClickHandlerReset=()=> {
+//     setA(--a);
+//     console.log(a)
+//   }
+//
+//   return (
+//     <div className='App'>
+//       <h1>{a}</h1>
+//       <button className="btn" onClick={onClickHandlerClick}>Click</button>
+//       <button className="btn" onClick={onClickHandlerReset}>Reset</button>
+//     </div>
+//   );
+// }
+// export default App;
 
 //------------------Button-------------------------------------------------------------------------
 // function App() {
@@ -50,7 +110,7 @@ export default App;
 //       <Button name={'Your Stupid Youtube Channel'} callBack={()=>YourStupidYoutubeChannel('Im a dumb button')}/>
 //     </>
 //   )
-  //--------------Button Start--------------------------------------------------------------------
+//--------------Button Start--------------------------------------------------------------------
 //   const firstGuest = (event:MouseEvent<HTMLButtonElement>) => {
 //       console.log('Hello! I am diligent Petya!')
 //   }
@@ -58,9 +118,9 @@ export default App;
 //       console.log('Fuck, Im Yura and Im here')
 //   }
 
-  // const onClickHandler = (name: string) => {
-  //   console.log(name)
-  // }
+// const onClickHandler = (name: string) => {
+//   console.log(name)
+// }
 
 
 //   return (
