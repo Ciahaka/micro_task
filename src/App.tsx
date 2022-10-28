@@ -2,7 +2,14 @@ import React from 'react';
 import {Header} from './component/header_props/Header';
 import {Body} from './component/header_props/Body';
 import {Footer} from './component/header_props/Footer';
-import {Students} from './students/Students';
+import {Students} from './component/students/Students';
+import {TopCars} from './component/topCars/TopCars';
+
+const topCars = [
+  {manufacturer:'BMW',model:'m5ce'},
+  {manufacturer:'Mercedes',model:'e63s'},
+  {manufacturer:'Audi',model:'rs6'},
+]
 
 const students = [
   {id: 1, name: "James", age: 8},
@@ -25,6 +32,7 @@ function App() {
       <Body title={'Тело сайта'}/>
       <Footer title={'Подвал сайта'}/>
       <Students students={students}/>
+      <TopCars/>
     </div>
   );
 }
