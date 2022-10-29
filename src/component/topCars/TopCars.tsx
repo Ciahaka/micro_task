@@ -3,23 +3,45 @@ import cars from './TopCars.module.css'
 
 
 
-export const TopCars = () => {
+type PropsCarsType={
+  id:number
+  manufacturer:string
+  model:string
+}
+
+export type PropsTopType={
+  cars:PropsCarsType[]
+}
+
+export const TopCars = (props: PropsTopType) => {
+
   return (
     <div className={cars.cars}>
       <table className={cars.table}>
-        <caption> Model Range </caption>
-        <tr className={cars.even} >
-          <td>1d</td>
-          <th>manufacturer</th>
-          <th>model</th>
+        <caption> Model Range</caption>
+        <tr className={cars.even}>
+          <th>Nп/п</th>
+          <th>Производитель</th>
+          <th>Модель</th>
         </tr>
-        <tr className={cars.lc}><td>1</td><td>BMW</td><td>e63s</td></tr>
-        <tr className={cars.lc}><td>2</td><td>Mercedes</td><td>e63s</td></tr>
-        <tr className={cars.lc}><td>3</td><td>Audi</td><td>e63s</td></tr>
+        {props.cars.map((el,index)=>{
+          return(
+            <>
+              <tr className={cars.lc}>
+                <td>{el.id}</td>
+                <td>{el.manufacturer}</td>
+                <td>{el.model}</td>
+              </tr>
+            </>
+          )
+        })}
       </table>
     </div>
-        )
+  );
 }
+
+
+
 
 
 
