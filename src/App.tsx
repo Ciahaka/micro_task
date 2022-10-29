@@ -5,10 +5,12 @@ import {Footer} from './component/header_props/Footer';
 import {Students} from './component/students/Students';
 import {TopCars} from './component/topCars/TopCars';
 
+
+
 const topCars = [
-  {manufacturer:'BMW',model:'m5ce'},
-  {manufacturer:'Mercedes',model:'e63s'},
-  {manufacturer:'Audi',model:'rs6'},
+  {id:1, manufacturer:'BMW',model:'m5ce'},
+  {id:2,manufacturer:'Mercedes',model:'e63s'},
+  {id:3,manufacturer:'Audi',model:'rs6'},
 ]
 
 const students = [
@@ -32,7 +34,7 @@ function App() {
       <Body title={'Тело сайта'}/>
       <Footer title={'Подвал сайта'}/>
       <Students students={students}/>
-      <TopCars/>
+      <TopCars cars={topCars}/>
     </div>
   );
 }
