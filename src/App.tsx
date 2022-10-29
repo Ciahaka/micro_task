@@ -4,6 +4,7 @@ import {Body} from './component/header_props/Body';
 import {Footer} from './component/header_props/Footer';
 import {Students} from './component/students/Students';
 import {TopCars} from './component/topCars/TopCars';
+import {Button, onClickHandler} from './component/button/Button';
 
 
 
@@ -35,6 +36,7 @@ function App() {
       <Footer title={'Подвал сайта'}/>
       <Students students={students}/>
       <TopCars cars={topCars}/>
+      <Button/>
     </div>
   );
 }
