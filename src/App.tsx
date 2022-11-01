@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import {Header} from './component/header_props/Header';
 import {Body} from './component/header_props/Body';
 import {Footer} from './component/header_props/Footer';
@@ -6,6 +6,19 @@ import {Students} from './component/students/Students';
 import {TopCars} from './component/topCars/TopCars';
 import {Button} from './component/button/Button';
 import {UniversalButton} from './component/button/universal button/UniversalButton';
+import {Banknotes } from './component/banknotes/Banknotes';
+import Huk from './component/huk/Huk';
+
+const [money, setMoney] = useState([
+  { banknotes: 'Dollars', nominal: 100, number: ' a1234567890' },
+  { banknotes: 'Dollars', nominal: 50, number: ' z1234567890' },
+  { banknotes: 'Ruble', nominal: 100, number: ' w1234567890' },
+  { banknotes: 'Dollars', nominal: 100, number: ' e1234567890' },
+  { banknotes: 'Dollars', nominal: 50, number: ' c1234567890' },
+  { banknotes: 'Ruble', nominal: 100, number: ' r1234567890' },
+  { banknotes: 'Dollars', nominal: 50, number: ' x1234567890' },
+  { banknotes: 'Ruble', nominal: 50, number: ' v1234567890' },
+])
 
 
 const topCars = [
@@ -51,6 +64,8 @@ function App() {
       <UniversalButton name={'Universal Button'} callback={()=>UnBut_1('Я самая Универсальная Кнопка!')}/>
       <UniversalButton name={'Universal Button_2'} callback={()=>UnBut_2('Нет! Это я самая Универсальная')}/>
       <UniversalButton name={'Stupid Button'} callback={StupidBut}/>
+      <Huk/>
+      <Banknotes money={}/>
     </div>
   );
 }
