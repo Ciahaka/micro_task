@@ -5,6 +5,7 @@ import {Footer} from './component/header_props/Footer';
 import {Students} from './component/students/Students';
 import {TopCars} from './component/topCars/TopCars';
 import {Button} from './component/button/Button';
+import {UniversalButton} from './component/button/universal button/UniversalButton';
 
 
 const topCars = [
@@ -28,6 +29,17 @@ const students = [
 ]
 
 function App() {
+
+  const UnBut_1 = (subs:string) => {
+    alert(subs)
+  }
+  const UnBut_2 = (subs_2:string) => {
+    alert(subs_2)
+  }
+  const StupidBut = () => {
+    alert('Я самая тупая кнопка')
+  }
+
   return (
     <div className="App">
       <Header title={'Шапка сайта'}/>
@@ -36,6 +48,9 @@ function App() {
       <Students students={students}/>
       <TopCars cars={topCars}/>
       <Button/>
+      <UniversalButton name={'Universal Button'} callback={()=>UnBut_1('Я самая Универсальная Кнопка!')}/>
+      <UniversalButton name={'Universal Button_2'} callback={()=>UnBut_2('Нет! Это я самая Универсальная')}/>
+      <UniversalButton name={'Stupid Button'} callback={StupidBut}/>
     </div>
   );
 }
