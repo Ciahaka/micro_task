@@ -9,16 +9,10 @@ import {UniversalButton} from './component/button/universal button/UniversalButt
 import {Banknotes } from './component/banknotes/Banknotes';
 import Huk from './component/huk/Huk';
 
-const [money, setMoney] = useState([
-  { banknotes: 'Dollars', nominal: 100, number: ' a1234567890' },
-  { banknotes: 'Dollars', nominal: 50, number: ' z1234567890' },
-  { banknotes: 'Ruble', nominal: 100, number: ' w1234567890' },
-  { banknotes: 'Dollars', nominal: 100, number: ' e1234567890' },
-  { banknotes: 'Dollars', nominal: 50, number: ' c1234567890' },
-  { banknotes: 'Ruble', nominal: 100, number: ' r1234567890' },
-  { banknotes: 'Dollars', nominal: 50, number: ' x1234567890' },
-  { banknotes: 'Ruble', nominal: 50, number: ' v1234567890' },
-])
+
+
+
+
 
 
 const topCars = [
@@ -41,7 +35,10 @@ const students = [
   {id: 11, name: 'Christopher', age: 100},
 ]
 
+
+
 function App() {
+
 
   const UnBut_1 = (subs:string) => {
     alert(subs)
@@ -54,6 +51,8 @@ function App() {
   }
 
   return (
+    <>
+
     <div className="App">
       <Header title={'Шапка сайта'}/>
       <Body title={'Тело сайта'}/>
@@ -65,8 +64,9 @@ function App() {
       <UniversalButton name={'Universal Button_2'} callback={()=>UnBut_2('Нет! Это я самая Универсальная')}/>
       <UniversalButton name={'Stupid Button'} callback={StupidBut}/>
       <Huk/>
-      <Banknotes money={}/>
+      <Banknotes/>
     </div>
+    </>
   );
 }
 
