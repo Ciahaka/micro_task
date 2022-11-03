@@ -15,6 +15,7 @@ import Huk from './component/huk/Huk';
 
 
 
+
 const topCars = [
   {id: 1, manufacturer: 'BMW', model: 'm5ce'},
   {id: 2, manufacturer: 'Mercedes', model: 'e63s'},
@@ -65,6 +66,7 @@ function App() {
       <UniversalButton name={'Stupid Button'} callback={StupidBut}/>
       <Huk/>
       <Banknotes/>
+
     </div>
     </>
   );
