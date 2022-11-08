@@ -1,9 +1,9 @@
 import React from 'react';
 
-export const Button = () => {
+export const ButtonFor = () => {
   return (
     <div>
-
+      <button>PiP</button>
     </div>
   );
 };
