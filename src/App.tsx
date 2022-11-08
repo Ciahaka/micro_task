@@ -8,7 +8,7 @@ import {Button} from './component/button/Button';
 import {UniversalButton} from './component/button/universal button/UniversalButton';
 import {Banknotes } from './component/banknotes/Banknotes';
 import Huk from './component/huk/Huk';
-
+import {UniversalInput} from './component/universal input/UniversalInput';
 
 
 
@@ -66,7 +66,7 @@ function App() {
       <UniversalButton name={'Stupid Button'} callback={StupidBut}/>
       <Huk/>
       <Banknotes/>
-
+      <UniversalInput/>
     </div>
     </>
   );
