@@ -13,9 +13,6 @@ import {UniversalInput} from './component/universal input/UniversalInput';
 
 
 
-
-
-
 const topCars = [
   {id: 1, manufacturer: 'BMW', model: 'm5ce'},
   {id: 2, manufacturer: 'Mercedes', model: 'e63s'},
@@ -61,9 +58,9 @@ function App() {
       <Students students={students}/>
       <TopCars cars={topCars}/>
       <Button/>
-      <UniversalButton name={'Universal Button'} callback={()=>UnBut_1('Я самая Универсальная Кнопка!')}/>
+      <UniversalButton name={'Universal ButtonFor'} callback={()=>UnBut_1('Я самая Универсальная Кнопка!')}/>
       <UniversalButton name={'Universal Button_2'} callback={()=>UnBut_2('Нет! Это я самая Универсальная')}/>
-      <UniversalButton name={'Stupid Button'} callback={StupidBut}/>
+      <UniversalButton name={'Stupid ButtonFor'} callback={StupidBut}/>
       <Huk/>
       <Banknotes/>
       <UniversalInput/>
