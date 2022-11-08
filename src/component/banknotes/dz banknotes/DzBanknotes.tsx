@@ -33,7 +33,7 @@ export const DzBanknotes = (props:PropsBanknotesType) => {
           <button className={`${s.all} ${s.usd}`} onClick={()=>props.callback('Dollars')}>dollars</button>
         </div>
       </div>
-      )
+
     </div>
   );
 };
