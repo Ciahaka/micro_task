@@ -1,9 +1,18 @@
 import React from 'react';
 
-export const ButtonFor = () => {
+
+export type ButtonForPropsType = {
+  name: string
+  addTextForGlobal:(text:string) => void
+}
+
+export const ButtonFor = (props: ButtonForPropsType) => {
+  const onClickButtonHandler = () => {
+    props.addTextForGlobal()
+  }
   return (
     <div>
-      <button>PiP</button>
+      <button onClick={onClickButtonHandler}>{props.name}</button>
     </div>
   );
 };
