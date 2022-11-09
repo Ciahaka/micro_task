@@ -12,12 +12,18 @@ export const UniversalInput = () => {
     ]
   )
 
+  const addTextForGlobal =(textButton:string)=>{
+    // console.log(textButton)
+    let newMessage={message:textButton}
+    setMessage([newMessage, ...message])
+  }
+
   return (
     <div className={s.site}>
       {/*<input type={'text'} />*/}
       {/*<button>PiP</button>*/}
-      <Input/>
-      <ButtonFor/>
+      <Input />
+      <ButtonFor name={'PiP'} addTextForGlobal={addTextForGlobal}/>
       {message.map((el, index) => {
         return <div>{el.message}</div>
       })}
