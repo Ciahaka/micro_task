@@ -1,32 +1,28 @@
-import React, {useState} from 'react';
+import React, {ChangeEvent, useState} from 'react';
 import s from './UniversalInput.module.css'
-import {Input} from './input/Input';
-import {ButtonFor} from './button/ButtonFor';
 
-export const UniversalInput = () => {
+export type ButtonForPropsType = {
+  name: string
+  addTextForGlobal: (textInput: string) => void
+}
 
-  let [message, setMessage] = useState([
-      {message: 'message1'},
-      {message: 'message2'},
-      {message: 'message3'},
-    ]
-  )
+export const UniversalInput = (props: ButtonForPropsType) => {
+  let [textInput, setInputText] = useState('')
 
-  const addTextForGlobal =(textButton:string)=>{
-    // console.log(textButton)
-    let newMessage={message:textButton}
-    setMessage([newMessage, ...message])
+  const eventInputHandler = (event: ChangeEvent<HTMLInputElement>) => {
+    setInputText(event.currentTarget.value)
   }
 
+  const onClickButtonHandler = () => {
+    props.addTextForGlobal(textInput)
+    setInputText('')
+
+  }
   return (
     <div className={s.site}>
-      {/*<input type={'text'} />*/}
-      {/*<button>PiP</button>*/}
-      <Input />
-      <ButtonFor name={'PiP'} addTextForGlobal={addTextForGlobal}/>
-      {message.map((el, index) => {
-        return <div>{el.message}</div>
-      })}
+      <input value={textInput} onChange={eventInputHandler}/>
+
+      <button onClick={onClickButtonHandler}>{props.name}</button>
     </div>
   );
 };
