@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React, {useState} from 'react';
 import {Header} from './component/header_props/Header';
 import {Body} from './component/header_props/Body';
 import {Footer} from './component/header_props/Footer';
@@ -6,11 +6,9 @@ import {Students} from './component/students/Students';
 import {TopCars} from './component/topCars/TopCars';
 import {Button} from './component/button/Button';
 import {UniversalButton} from './component/button/universal button/UniversalButton';
-import {Banknotes } from './component/banknotes/Banknotes';
+import {Banknotes} from './component/banknotes/Banknotes';
 import Huk from './component/huk/Huk';
 import {UniversalInput} from './component/universal input/UniversalInput';
-
-
 
 
 const topCars = [
@@ -34,14 +32,24 @@ const students = [
 ]
 
 
-
 function App() {
 
+  let [message, setMessage] = useState([
+      {message: 'message1'},
+      {message: 'message2'},
+      {message: 'message3'},
+    ]
+  )
 
-  const UnBut_1 = (subs:string) => {
+  const addTextForGlobal = (textButton: string) => {
+    // console.log(textButton)
+    let newMessage = {message: textButton}
+    setMessage([newMessage, ...message])
+  }
+  const UnBut_1 = (subs: string) => {
     alert(subs)
   }
-  const UnBut_2 = (subs_2:string) => {
+  const UnBut_2 = (subs_2: string) => {
     alert(subs_2)
   }
   const StupidBut = () => {
@@ -51,20 +59,23 @@ function App() {
   return (
     <>
 
-    <div className="App">
-      <Header title={'Шапка сайта'}/>
-      <Body title={'Тело сайта'}/>
-      <Footer title={'Подвал сайта'}/>
-      <Students students={students}/>
-      <TopCars cars={topCars}/>
-      <Button/>
-      <UniversalButton name={'Universal ButtonFor'} callback={()=>UnBut_1('Я самая Универсальная Кнопка!')}/>
-      <UniversalButton name={'Universal Button_2'} callback={()=>UnBut_2('Нет! Это я самая Универсальная')}/>
-      <UniversalButton name={'Stupid ButtonFor'} callback={StupidBut}/>
-      <Huk/>
-      <Banknotes/>
-      <UniversalInput/>
-    </div>
+      <div className="App">
+        <Header title={'Шапка сайта'}/>
+        <Body title={'Тело сайта'}/>
+        <Footer title={'Подвал сайта'}/>
+        <Students students={students}/>
+        <TopCars cars={topCars}/>
+        <Button/>
+        <UniversalButton name={'Universal ButtonFor'} callback={() => UnBut_1('Я самая Универсальная Кнопка!')}/>
+        <UniversalButton name={'Universal Button_2'} callback={() => UnBut_2('Нет! Это я самая Универсальная')}/>
+        <UniversalButton name={'Stupid ButtonFor'} callback={StupidBut}/>
+        <Huk/>
+        <Banknotes/>
+        <UniversalInput name={'PiP'} addTextForGlobal={addTextForGlobal}/>
+        {message.map((el, index) => {
+          return <div>{el.message}</div>
+        })}
+      </div>
     </>
   );
 }
