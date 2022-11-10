@@ -20,9 +20,9 @@ export const UniversalInput = (props: ButtonForPropsType) => {
   }
   return (
     <div className={s.site}>
-      <input value={textInput} onChange={eventInputHandler}/>
+      <input className={s.input} value={textInput} onChange={eventInputHandler}/>
 
-      <button onClick={onClickButtonHandler}>{props.name}</button>
+      <button className={s.button} onClick={onClickButtonHandler}>{props.name}</button>
     </div>
   );
 };

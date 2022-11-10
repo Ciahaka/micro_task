@@ -1,5 +1,11 @@
 .App {
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid grey;
+    background-color: #78f33a;
 
 }
 
