@@ -54,9 +54,9 @@ function App() {
  }
 
 
-  const addTextForGlobal = (textButton: string) => {
-    // console.log(textButton)
-    let newMessage = {message: textButton}
+  const addTextForGlobal = (textInput: string) => {
+    // console.log(textInput)
+    let newMessage = {message: textInput}
     setMessage([newMessage, ...message])
   }
 
