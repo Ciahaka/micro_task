@@ -9,6 +9,8 @@ import {UniversalButton} from './component/button/universal button/UniversalButt
 import {Banknotes} from './component/banknotes/Banknotes';
 import Huk from './component/huk/Huk';
 import {UniversalInput} from './component/universal input/UniversalInput';
+import {AloneInput} from './component/universal input/alone input/AloneInput';
+import {AloneButton} from './component/universal input/alone button/AloneButton';
 
 
 const topCars = [
@@ -41,11 +43,23 @@ function App() {
     ]
   )
 
+  let [aloneInput, setAloneInput] = useState('')
+  const addAloneMessage = (aloneInput:string) => {
+    let aloneMessage = {message: aloneInput}
+    setMessage([aloneMessage, ...message])
+  }
+ const callbackButtonHandler =()=>{
+   addAloneMessage(aloneInput)
+   setAloneInput('')
+ }
+
+
   const addTextForGlobal = (textButton: string) => {
     // console.log(textButton)
     let newMessage = {message: textButton}
     setMessage([newMessage, ...message])
   }
+
   const UnBut_1 = (subs: string) => {
     alert(subs)
   }
@@ -72,6 +86,10 @@ function App() {
         <Huk/>
         <Banknotes/>
         <UniversalInput name={'PiP'} addTextForGlobal={addTextForGlobal}/>
+
+
+        <AloneInput aloneInput={aloneInput} setAloneInput={setAloneInput}/>
+        <AloneButton name={'KlaK'} callback={callbackButtonHandler}/>
         {message.map((el, index) => {
           return <div>{el.message}</div>
         })}
